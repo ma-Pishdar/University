@@ -1,11 +1,13 @@
 # مهارت‌های تصمیم‌گیری و مسئله‌یابی
-این مجموعه یک راهنمای جامع برای تقویت مهارت‌های تصمیم‌گیری و مسئله‌یابی است. که تمرکز اصلی آن، بر شناخت مغز و مدل‌های ذهنی، ریشه‌یابی و درک صحیح مسئله، و نیز تقویت تفکر انتقادی، خلاق و سیستمی می‌باشد. این راهنما به فرد کمک می‌کند تا در شرایط عدم قطعیت، با استفاده از تحلیل داده‌ها، بر سوگیری‌ها غلبه کرده و تصمیمات استراتژیک و مؤثرتری اتخاذ نماید. 
-
 ![University](https://img.shields.io/badge/University-A0332B?style=for-the-badge&logo=circuitverse&logoColor=FFFFFF)
 ![Decision-Making Badge](https://img.shields.io/badge/build-Skills-brightgreen?style=for-the-badge&logo=trillertv&logoColor=FFFFFF&logoSize=auto&label=Decision-Making&labelColor=%23222222&color=0077B6&link=message)
 
+این مجموعه یک راهنمای جامع برای تقویت مهارت‌های تصمیم‌گیری و مسئله‌یابی است. که تمرکز اصلی آن، بر شناخت مغز و مدل‌های ذهنی، ریشه‌یابی و درک صحیح مسئله، و نیز تقویت تفکر انتقادی، خلاق و سیستمی می‌باشد. این راهنما به فرد کمک می‌کند تا در شرایط عدم قطعیت، با استفاده از تحلیل داده‌ها، بر سوگیری‌ها غلبه کرده و تصمیمات استراتژیک و مؤثرتری اتخاذ نماید. 
+
+
+
 <!-- Logo image -->
-<img src="./images/DM-PS logo.jpg" alt="logo" width="400"/>
+<img src="../images/DM-PS logo.jpg" alt="logo" width="400"/>
 
 
 
