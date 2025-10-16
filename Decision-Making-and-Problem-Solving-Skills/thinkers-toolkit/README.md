@@ -1,7 +1,6 @@
 ![University](https://img.shields.io/badge/University-A0332B?style=for-the-badge&logo=circuitverse&logoColor=FFFFFF)
 ![Decision-Making Badge](https://img.shields.io/badge/build-Skills-brightgreen?style=for-the-badge&logo=trillertv&logoColor=FFFFFF&logoSize=auto&label=Decision-Making&labelColor=%23222222&color=0077B6&link=message)
-
-![The-Thinkers-Toolkit](https://img.shields.io/badge/build-Thinkers%20Toolkit-brightgreen?style=plastic&logo=arangodb&logoColor=FFFFFF&logoSize=auto&label=Brain%20and%20Mind)
+![The-Thinkers-Toolkit](https://img.shields.io/badge/build-Toolkit-brightgreen?style=for-the-badge&logo=arangodb&logoColor=FFFFFF&logoSize=auto&label=Brain%20and%20Mind)
 
 
 <div dir="rtl">
