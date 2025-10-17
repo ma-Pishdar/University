@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جعبه ابزار متفکر: چرا از مسیر درست منحرف می‌شویم؟</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed around a central theme of "Problem vs. Solution," contrasting the "Instinctive Mind" with the "Structured Mind." The user journey begins with understanding the problem (Flawed Analysis), delves into its root causes (Human Reasoning Flaws), explores specific symptoms (Analytic Sins), and finally discovers the solution (Structuring). The core interaction involves clicking on one of the "Analytic Sins," which dynamically updates a comparison chart and a descriptive text to show exactly how the structured approach counteracts that specific flaw. This structure was chosen to create a clear narrative and an interactive learning path, making the conceptual information more engaging and memorable than a linear report. -->
+    <!-- Visualization & Content Choices: 
+        - Problem/Example (Family Frozen Foods): Goal: Inform. Method: Styled text block with icon. Interaction: None. Justification: Sets the stage clearly.
+        - Root Causes (Emotion/Shortcuts): Goal: Organize/Inform. Method: HTML/CSS cards using Tailwind. Interaction: Subtle hover effects. Justification: Breaks down complex concepts into digestible pieces.
+        - Analytic Sins (4 Sins): Goal: Organize/Interact. Method: A grid of clickable HTML/CSS cards. Interaction: Main trigger for dynamic updates. Justification: Serves as the primary navigation for exploring the problem-solution relationship.
+        - The Solution (Structuring): Goal: Inform. Method: Simple text with a conceptual diagram made of HTML/CSS divs. Interaction: None. Justification: Clearly presents the core solution.
+        - Comparison Chart: Goal: Compare. Method: A Radar Chart using Chart.js (Canvas). Interaction: Dynamically updated via JavaScript when an "Analytic Sin" card is clicked. Justification: Provides a powerful visual representation of the qualitative differences between the two thinking approaches, enhancing user understanding.
+        - Library/Method: Chart.js on Canvas for the main visualization. All other diagrams and layouts are done with HTML and Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #FDFBF8;
+            color: #3D352F;
+        }
+        .card-active {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #A57C5A;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-[#EFEAE4] py-4 shadow-sm sticky top-0 z-10">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-[#A57C5A]">🧠 جعبه ابزار متفکر</h1>
+            <ul class="flex space-x-4 space-x-reverse text-sm md:text-base">
+                <li><a href="#problem" class="hover:text-[#A57C5A] transition-colors">مشکل</a></li>
+                <li><a href="#sins" class="hover:text-[#A57C5A] transition-colors">خطاها</a></li>
+                <li><a href="#solution" class="hover:text-[#A57C5A] transition-colors">راه‌حل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">چرا از مسیر درست منحرف می‌شویم؟</h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600">
+                خلاصه‌ای تعاملی از فصل اول کتاب The Thinker's Toolkit که نشان می‌دهد چگونه ضعف‌های ذاتی ذهن، ما را به تحلیل‌های ناقص و تصمیمات اشتباه می‌رساند و چگونه «ساختاردهی» می‌تواند ما را نجات دهد.
+            </p>
+        </section>
+
+        <section id="problem" class="mb-16">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h3 class="text-2xl font-bold mb-4 text-[#A57C5A] flex items-center">
+                    <span class="text-3xl ml-3">❌</span> ماهیت مشکل: تحلیل ناقص (Flawed Analysis)
+                </h3>
+                <p class="mb-4 text-gray-700">
+                    بسیاری از اشتباهات ما نه از کمبود اطلاعات، بلکه از نقص در فرآیند تحلیل سرچشمه می‌گیرد. ذهن ما تمایل دارد بدون یک چارچوب منطقی، از موضوعی به موضوع دیگر بپرد و تحت تأثیر احساسات و پیش‌فرض‌های پنهان قرار گیرد.
+                </p>
+                <div class="bg-[#FDFBF8] p-4 rounded-lg border border-dashed border-gray-300">
+                    <p class="font-semibold">مثال واقعی: شرکت Family Frozen Foods</p>
+                    <p class="text-sm text-gray-600">
+                        مدیران این شرکت، با وجود بحث‌های طولانی، در خرید یک کامیون جدید دچار اشتباه شدند. بحث آن‌ها ساختار مشخصی نداشت و عواملی مانند جایگاه سازمانی و احساسات، بر تحلیل عینی غلبه کرد و منجر به یک تصمیم پرهزینه شد.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="grid md:grid-cols-2 gap-8 mb-16">
+             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h3 class="text-2xl font-bold mb-4 text-[#A57C5A] flex items-center">
+                    <span class="text-3xl ml-3">🤯</span> ریشه اصلی: ضعف ذاتی استدلال
+                </h3>
+                <p class="mb-6 text-gray-700">ذهن انسان برای «سرهم‌بندی ذهنی» طراحی شده، نه تحلیل دقیق. دو عامل غریزی قدرتمند، همواره منطق ما را به چالش می‌کشند:</p>
+                <div class="space-y-4">
+                    <div class="bg-[#FDFBF8] p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-lg">❤️‍🔥 بعد احساسی (Emotional Dimension)</h4>
+                        <p class="text-gray-600">احساسات قوی می‌توانند توانایی استدلال ما را بربایند (Hijack). در شرایط هیجانی، قدرت تفکر منطقی ما به شدت کاهش می‌یابد.</p>
+                    </div>
+                    <div class="bg-[#FDFBF8] p-4 rounded-lg border border-gray-200">
+                        <h4 class="font-bold text-lg">⚡️ میانبرهای ذهنی (Mental Shortcuts)</h4>
+                        <p class="text-gray-600">مغز برای صرفه‌جویی در انرژی، دائماً از مسیرهای میانبر (شهود، پیش‌داوری، کلیشه‌سازی) استفاده می‌کند که اغلب منجر به سوگیری و خطا می‌شوند.</p>
+                    </div>
+                </div>
+            </div>
+             <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h3 class="text-2xl font-bold mb-4 text-[#A57C5A] flex items-center">
+                    <span class="text-3xl ml-3">🧠</span> حاکمیت ناخودآگاه (Unconscious Mind)
+                </h3>
+                 <p class="text-gray-700">
+                    بخش بزرگی از فرآیندهای فکری ما در ناخودآگاه رخ می‌دهد. تحقیقات علوم شناختی نشان می‌دهد که فعالیت مغزی مرتبط با یک تصمیم، حدود یک‌سوم ثانیه **قبل از آنکه** ما آگاهانه آن تصمیم را بگیریم، آغاز می‌شود. این یعنی بسیاری از انتخاب‌های ما ریشه در فرآیندهایی دارند که کنترلی بر آن‌ها نداریم و این موضوع، تحلیل عینی را بسیار دشوار می‌سازد.
+                </p>
+                 <div class="mt-6 text-center">
+                    <div class="text-6xl">🕰️</div>
+                    <p class="mt-2 font-semibold text-gray-600">تصمیم ناخودآگاه، سپس آگاهی</p>
+                 </div>
+            </div>
+        </section>
+
+        <section id="sins" class="mb-16">
+            <h3 class="text-3xl font-bold text-center mb-2">🛑 ۴ خطای رایج تحلیلی (Analytic Sins)</h3>
+            <p class="text-center text-gray-600 mb-8">این عادت‌های ذهنی مخرب، مسیر تحلیل ما را به بیراهه می‌کشانند. روی هر خطا کلیک کنید تا تأثیر آن را در نمودار مقایسه ببینید.</p>
+            <div id="sins-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            </div>
+        </section>
+
+        <section id="solution" class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#A57C5A] flex items-center">
+                        <span class="text-3xl ml-3">✅</span> راه‌حل نهایی: ساختاردهی (Structuring)
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        ساختاردهی، پادزهر ذهن سرهم‌بند ماست. این رویکرد به معنای ایجاد یک چارچوب منطقی است که ذهن را وادار می‌کند تا هر جزء از مسئله را **جداگانه، سیستماتیک و کافی** بررسی کند. ساختاردهی، ذهن را باز نگه می‌دارد و از افتادن در دام اولین راه‌حلِ دم‌دستی جلوگیری می‌کند.
+                    </p>
+                     <p id="solution-explanation" class="bg-[#FDFBF8] p-4 rounded-lg border border-green-200 text-green-800 transition-all duration-300">
+                        با انتخاب یک خطا از بخش بالا، در اینجا مشاهده کنید که چگونه ساختاردهی به رفع آن کمک می‌کند.
+                     </p>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                     <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                     <p class="text-sm text-gray-500 mt-2 text-center">نمودار مقایسه‌ی ویژگی‌های دو رویکرد تحلیلی</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-8 mt-8 border-t border-gray-200">
+        <p class="text-gray-500">طراحی شده بر اساس فصل اول کتاب The Thinker's Toolkit نوشته Morgan D. Jones</p>
+    </footer>
+
+    <script>
+        const sinsData = [
+            {
+                id: 'conclusion',
+                icon: '🏁',
+                title: 'شروع با نتیجه‌گیری',
+                description: 'تحلیل را از نقطه‌ای شروع می‌کنیم که باید به آن ختم شود و تنها به دنبال شواهدی برای تأیید آن می‌گردیم.',
+                solution: 'ساختاردهی ما را مجبور می‌کند ابتدا مشکل را تعریف کرده، سپس شواهد را بررسی و در نهایت به نتیجه‌گیری برسیم. این فرآیند، ترتیب منطقی تحلیل را حفظ می‌کند.'
+            },
+            {
+                id: 'favorite',
+                icon: '👍',
+                title: 'تمرکز بر راه‌حل مورد علاقه',
+                description: 'به راه‌حلی که به طور غریزی به آن تمایل داریم توجه کرده و گزینه‌های جایگزین را نادیده می‌گیریم.',
+                solution: 'ساختاردهی نیازمند بررسی سیستماتیک چندین گزینه جایگزین است و از تمرکز زودهنگام بر یک راه‌حل جلوگیری می‌کند و ذهن را باز نگه می‌دارد.'
+            },
+            {
+                id: 'satisficing',
+                icon: '✅',
+                title: 'رضایت‌بخشی (Satisficing)',
+                description: 'به اولین راه‌حلِ "به‌اندازه‌ی کافی خوب" بسنده می‌کنیم، به‌جای اینکه به دنبال بهترین راه‌حل ممکن بگردیم.',
+                solution: 'با ایجاد یک چارچوب برای ارزیابی، ساختاردهی ما را تشویق می‌کند تا به دنبال راه‌حل بهینه بگردیم، نه فقط اولین گزینه‌ی قابل قبول.'
+            },
+            {
+                id: 'discussion',
+                icon: '🗣️',
+                title: 'اشتباه گرفتن بحث با تحلیل',
+                description: 'صرفاً "فکر کردن یا بحث کردن زیاد" در مورد یک مشکل را با یک تحلیل واقعی و ساختاریافته اشتباه می‌گیریم.',
+                solution: 'ساختاردهی یک فرآیند مشخص و هدفمند است، نه یک بحث بی‌هدف. این رویکرد، تفکر را به سمت یک تحلیل واقعی و قابل دفاع هدایت می‌کند.'
+            }
+        ];
+
+        const sinsContainer = document.getElementById('sins-container');
+        sinsData.forEach(sin => {
+            const card = document.createElement('div');
+            card.className = 'sin-card bg-white p-6 rounded-xl shadow-md border-2 border-transparent hover:border-[#A57C5A] cursor-pointer transition-all duration-300';
+            card.dataset.id = sin.id;
+            card.innerHTML = `
+                <div class="text-4xl mb-3">${sin.icon}</div>
+                <h4 class="font-bold text-xl mb-2">${sin.title}</h4>
+                <p class="text-gray-600 text-sm">${sin.description}</p>
+            `;
+            sinsContainer.appendChild(card);
+        });
+
+        const ctx = document.getElementById('comparisonChart').getContext('2d');
+        const chartData = {
+            labels: [
+                'جامعیت نتیجه',
+                'باز بودن ذهن',
+                'اتکا به منطق',
+                'کارایی',
+                'پیش‌بینی‌پذیری'
+            ],
+            datasets: [
+                {
+                    label: 'رویکرد غریزی',
+                    data: [3, 2, 2, 4, 3],
+                    backgroundColor: 'rgba(239, 117, 83, 0.2)',
+                    borderColor: 'rgba(239, 117, 83, 1)',
+                    pointBackgroundColor: 'rgba(239, 117, 83, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(239, 117, 83, 1)'
+                },
+                {
+                    label: 'رویکرد ساختاریافته',
+                    data: [9, 9, 8, 7, 8],
+                    backgroundColor: 'rgba(11, 156, 49, 0.2)',
+                    borderColor: 'rgba(11, 156, 49, 1)',
+                    pointBackgroundColor: 'rgba(11, 156, 49, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(11, 156, 49, 1)'
+                }
+            ]
+        };
+        const comparisonChart = new Chart(ctx, {
+            type: 'radar',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                         callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.r !== null) {
+                                    label += context.parsed.r;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: {
+                           stepSize: 2,
+                           backdropColor: 'rgba(255, 255, 255, 0.75)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 12,
+                                family: 'Vazirmatn'
+                            }
+                        }
+                    }
+                },
+            }
+        });
+
+        const solutionExplanation = document.getElementById('solution-explanation');
+        const sinCards = document.querySelectorAll('.sin-card');
+
+        const baseScores = {
+            instinctive: [3, 2, 2, 4, 3],
+            structured: [9, 9, 8, 7, 8]
+        };
+
+        const sinImpacts = {
+            conclusion: { instinctive: [-1, -2, -1, 0, -1] },
+            favorite: { instinctive: [0, -2, -1, -1, 0] },
+            satisficing: { instinctive: [-2, 0, 0, -2, -1] },
+            discussion: { instinctive: [-1, -1, -1, -2, -2] }
+        };
+
+        function updateContent(selectedSinId) {
+            const sin = sinsData.find(s => s.id === selectedSinId);
+            if(sin) {
+                solutionExplanation.textContent = sin.solution;
+                solutionExplanation.classList.remove('border-green-200', 'text-green-800');
+                solutionExplanation.classList.add('border-blue-200', 'text-blue-800');
+            }
+            
+            const impact = sinImpacts[selectedSinId]?.instinctive || [0, 0, 0, 0, 0];
+            const newInstinctiveData = baseScores.instinctive.map((score, i) => Math.max(0, score + impact[i]));
+
+            comparisonChart.data.datasets[0].data = newInstinctiveData;
+            comparisonChart.update();
+        }
+
+        sinsContainer.addEventListener('click', (e) => {
+            const selectedCard = e.target.closest('.sin-card');
+            if (selectedCard) {
+                const selectedId = selectedCard.dataset.id;
+                
+                sinCards.forEach(card => {
+                    card.classList.remove('card-active');
+                });
+                selectedCard.classList.add('card-active');
+
+                document.getElementById('solution').scrollIntoView({ behavior: 'smooth' });
+
+                updateContent(selectedId);
+            }
+        });
+
+    </script>
+</body>
+</html>
