@@ -6,7 +6,7 @@
 <div dir="rtl">
 
 <!-- Book image -->
-<img src="../../images/The Thinkers Toolkit 14 Powerful Techniques for Problem Solving.jpg" alt="Book Cover"/>
+<img src="../images/The Thinkers Toolkit 14 Powerful Techniques for Problem Solving.jpg" alt="Book Cover"/>
 
 # 🧠 خلاصه کتاب: ابزار تفکر (The Thinker's Toolkit)
 ## ۱۴ تکنیک قدرتمند برای حل مسئله
