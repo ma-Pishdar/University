@@ -1,6 +1,8 @@
 # هم‌راستاسازی هوش مصنوعی (AI Alignment)
 ![University](https://img.shields.io/badge/University-A0332B?style=for-the-badge&logo=circuitverse&logoColor=FFFFFF)
-![Decision-Making Badge](https://img.shields.io/badge/build-Skills-brightgreen?style=for-the-badge&logo=trillertv&logoColor=FFFFFF&logoSize=auto&label=Decision-Making&labelColor=%23222222&color=0077B6&link=message)
+![AI Alignment](https://img.shields.io/badge/ai-Alignment-brightgreen)
+
+
 
 <!-- Logo image -->
 <img src="../images/DM-PS logo.jpg" alt="logo"/>
