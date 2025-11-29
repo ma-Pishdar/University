@@ -5,7 +5,7 @@
 
 
 <!-- Logo image -->
-<img src="../images/DM-PS logo.jpg" alt="logo"/>
+<img src="../images/AI Alignment LOGO.jpg" alt="logo"/>
 
 ## سرفصل‌های کلیدی:
 
