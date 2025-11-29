@@ -1,5 +1,5 @@
 # هم‌راستاسازی هوش مصنوعی (AI Alignment)
-![University](https://img.shields.io/badge/University-A0332B?style=for-the-badge&logo=circuitverse&logoColor=FFFFFF)
+![University](https://img.shields.io/badge/University-orange)
 ![AI Alignment](https://img.shields.io/badge/ai-Alignment-brightgreen)
 
 
